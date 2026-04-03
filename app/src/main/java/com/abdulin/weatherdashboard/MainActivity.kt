@@ -102,6 +102,14 @@ fun WeatherDashboardScreen(
             Text(text = "⚠️ Simulate Error")
         }
 
+        if (weatherState.weatherIndex != null) {
+            WeatherCard(
+                emoji = " 📊 ",
+                title = "Weather Index",
+                value = "${weatherState.weatherIndex}",
+                isLoading = false
+            )
+        }
         if (weatherState.error != null) {
             Spacer(modifier = Modifier.height(16.dp))
             Text(
