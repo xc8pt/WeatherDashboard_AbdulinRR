@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -110,6 +111,16 @@ fun WeatherDashboardScreen(
                 isLoading = false
             )
         }
+        Spacer(modifier = Modifier.height(16.dp))
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = "🔁 Auto-refresh every 10s",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.tertiary
+            )
+        }
         if (weatherState.error != null) {
             Spacer(modifier = Modifier.height(16.dp))
             Text(
@@ -118,7 +129,6 @@ fun WeatherDashboardScreen(
                 style = MaterialTheme.typography.bodyMedium
             )
         }
-
         if (weatherState.loadingProgress.isNotEmpty()) {
             Spacer(modifier = Modifier.height(8.dp))
             Text(
