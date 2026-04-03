@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.materialIcon
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -100,6 +101,15 @@ fun WeatherDashboardScreen(
                 text = weatherState.error!!,
                 color = MaterialTheme.colorScheme.error,
                 style = MaterialTheme.typography.bodyMedium
+            )
+        }
+
+        if (weatherState.loadingProgress.isNotEmpty()) {
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = weatherState.loadingProgress,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.secondary
             )
         }
     }
